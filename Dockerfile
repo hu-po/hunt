@@ -4,27 +4,34 @@
 # 
 # 
 
+LABEL maintainer="https://github.com/hu-po"
+
 ARG PARENT_IMAGE
 FROM $PARENT_IMAGE
 ARG PYTORCH_DEPS=cpuonly
 ARG PYTHON_VERSION=3.7
 
+EXPOSE 8888
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        # Stable Baselines 
-         build-essential \
-         cmake \
-         git \
-         curl \
-         ca-certificates \
-         libjpeg-dev \
-         libpng-dev \
-         libglib2.0-0 && \
-         # OpenAI Gym
-         unzip \
-         patchelf \
-         ffmpeg \
-         swig \
-     rm -rf /var/lib/apt/lists/*
+    # Stable Baselines 
+    build-essential \
+    cmake \
+    git \
+    curl \
+    ca-certificates \
+    libjpeg-dev \
+    libpng-dev \
+    libglib2.0-0 && \
+    # OpenAI Gym
+    unzip \
+    patchelf \
+    ffmpeg \
+    swig \
+    # Jupyter
+    tzdata \
+    vim-tiny
+RUN rm -rf /var/lib/apt/lists/*
 
 ENV CODE_DIR /root/code
 
@@ -53,7 +60,16 @@ RUN pip install -r requirements.txt && \
 #     pip install opencv-python-headless && \
 #     rm -rf $HOME/.cache/pip
 
+# # TODO: Install DynamixelSDK for servos
+# RUN \
+# $ git clone https://github.com/ROBOTIS-GIT/DynamixelSDK.git .
+# $ cd DynamixelSDK/python/
+# $ pip install -e .
+# pip install dxl_py
+
 COPY . /usr/local/gym/
 WORKDIR /usr/local/gym/
 
 RUN pip install -r requirements.txt
+
+CMD jupyter notebook
