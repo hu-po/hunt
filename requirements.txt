@@ -1,0 +1,27 @@
+# ------- Stable Baselines
+gym>=0.17,<0.20  # gym 0.20 breaks atari-py behavior
+numpy>=1.18.0
+torch>=1.8.1
+# For saving models
+cloudpickle>=1.2.0
+# For reading logs
+pandas
+# Plotting learning curves
+matplotlib
+# Type check
+pytype
+# Sort imports
+isort>=5.0
+# For toy text Gym envs
+scipy>=1.4.1
+# For render
+# opencv-python>=3.0
+opencv-python-headless
+pillow
+# Checking memory taken by replay buffer
+psutil
+# ------- OpenAI Gym
+ale-py~=0.7
+box2d-py==2.3.5
+pyglet>=1.4.0
+lz4>=3.1.0
