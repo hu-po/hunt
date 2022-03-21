@@ -24,19 +24,26 @@ rosinstall_generator ros_comm --rosdistro noetic --deps --wet-only --tar > noeti
 wstool init src noetic-ros_comm-wet.rosinstall
 
 rosdep install -y --from-paths src --ignore-src --rosdistro noetic -r --os=debian:buster
-
 sudo ./src/catkin/bin/catkin_make_isolated --install -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/noetic -j2
 
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+
 # Dynamixel Installation
 # http://wiki.ros.org/dynamixel_workbench
+mkdir ~/dynamixel && cd ~/dynamixel
 git clone --branch noetic-devel https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
 git clone --branch noetic-devel https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs.git
 git clone --branch noetic-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
 
+# Make DynamixelSDK
+cd ~/dynamixel/DynamixelSDK/c++/build/linux_sbc/
+make clean && make
+sudo make install
+
 # Discover Dynamixel servos
 # https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_workbench/
-cd ~/dynamixel-workbench/dynamixel_workbench_toolbox/examples
+# https://github.com/ROBOTIS-GIT/dynamixel-workbench/issues/294
+cd ~/dynamixel/dynamixel-workbench/dynamixel_workbench_toolbox/examples
 mkdir -p build && cd build
 cmake ..
 make
@@ -49,4 +56,10 @@ sudo udevadm trigger
 
 # discover dynamixels
 ls /dev/tty*
-rosrun dynamixel_workbench_controllers find_dynamixel /dev/ttyUSB0
+cd ~/dynamixel/dynamixel-workbench/dynamixel_workbench_toolbox/examples/build
+./find_dynamixel /dev/ttyUSB0
+
+# Succeed to init(1000000)
+# Wait for scan...
+# Find 1 Dynamixels
+# id : 3, model name : MX-106-2
