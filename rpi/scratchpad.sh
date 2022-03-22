@@ -93,6 +93,23 @@ cp -r ~/Downloads/common_msgs/geometry_msgs ~/ros_hunt_ws/src/geometry_msgs
 cp -r ~/Downloads/common_msgs/sensor_msgs ~/ros_hunt_ws/src/sensor_msgs
 cp -r ~/Downloads/common_msgs/trajectory_msgs ~/ros_hunt_ws/src/trajectory_msgs
 
+# Copy workspace over to tren to commit
+scp -r pi@192.168.1.27:/home/pi/ros_hunt_ws /home/tren/dev/hunt/rpi/
+
+# Test out workspace
+cd ~/ros_hunt_ws
+source devel/setup.bash
+rosrun dynamixel_workbench_controllers find_dynamixel /dev/ttyUSB0
+
+
+# Test out single servo setup
+scp -r /home/tren/dev/hunt/rpi/ros_hunt_ws/test1* pi@192.168.1.27:/home/pi/ros_hunt_ws/
+roslaunch test1.launch
+
+# Test out two servo setup
+scp -r /home/tren/dev/hunt/rpi/ros_hunt_ws/test2* pi@192.168.1.27:/home/pi/ros_hunt_ws/
+roslaunch test1.launch
+
 # Set up Multi-host ROS
 # https://husarion.com/tutorials/ros-tutorials/5-running-ros-on-multiple-machines/
 # 1st device (pi - 192.168.1.27)
