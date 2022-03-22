@@ -1,1 +1,16 @@
+# Blender files
 *.blend
+
+# ROS build
+devel/
+logs/
+build/
+bin/
+lib/
+msg_gen/
+srv_gen/
+srv/_*.py
+CATKIN_IGNORE
+*.cfgc
+/cfg/cpp/
+/cfg/*.py

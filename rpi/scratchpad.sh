@@ -101,7 +101,6 @@ cd ~/ros_hunt_ws
 source devel/setup.bash
 rosrun dynamixel_workbench_controllers find_dynamixel /dev/ttyUSB0
 
-
 # Test out single servo setup
 scp -r /home/tren/dev/hunt/rpi/ros_hunt_ws/test1* pi@192.168.1.27:/home/pi/ros_hunt_ws/
 roslaunch test1.launch
