@@ -12,7 +12,14 @@ sudo apt clean
 sudo apt update
 sudo apt-get upgrade
 
-sudo apt-get install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake
+sudo apt-get install -y python-rosdep \
+    python-rosinstall-generator \
+    python-wstool \
+    python-rosinstall \
+    build-essential \
+    cmake \
+    libeigen3-dev \
+    libyaml-cpp-dev
 
 sudo rosdep init
 rosdep update
@@ -63,3 +70,25 @@ cd ~/dynamixel/dynamixel-workbench/dynamixel_workbench_toolbox/examples/build
 # Wait for scan...
 # Find 1 Dynamixels
 # id : 3, model name : MX-106-2
+
+# Make new ROS workspace
+mkdir ~/ros_hunt_ws
+mkdir ~/ros_hunt_ws/src
+mkdir ~/ros_hunt_ws/build
+mkdir ~/ros_hunt_ws/devel
+
+# Copy Dynamixel dependencies into new workspace
+cp -r ~/dynamixel/dynamixel-workbench/dynamixel_workbench ~/ros_hunt_ws/src/dynamixel_workbench
+cp -r ~/dynamixel/dynamixel-workbench/dynamixel_workbench_controllers ~/ros_hunt_ws/src/dynamixel_workbench_controllers
+cp -r ~/dynamixel/dynamixel-workbench/dynamixel_workbench_operators ~/ros_hunt_ws/src/dynamixel_workbench_operators
+cp -r ~/dynamixel/dynamixel-workbench/dynamixel_workbench_toolbox ~/ros_hunt_ws/src/dynamixel_workbench_toolbox
+cp -r ~/dynamixel/dynamixel-workbench-msgs/dynamixel_workbench_msgs ~/ros_hunt_ws/src/dynamixel_workbench_msgs
+cp -r ~/dynamixel/DynamixelSDK/ros/dynamixel_sdk ~/ros_hunt_ws/src/dynamixel_sdk
+cp -r ~/dynamixel/DynamixelSDK/ros/dynamixel_sdk_examples ~/ros_hunt_ws/src/dynamixel_sdk_examples
+
+# Get ROS dependencies
+cd ~/Downloads
+git clone --branch noetic-devel https://github.com/ros/common_msgs.git
+cp -r ~/Downloads/common_msgs/geometry_msgs ~/ros_hunt_ws/src/geometry_msgs
+cp -r ~/Downloads/common_msgs/sensor_msgs ~/ros_hunt_ws/src/sensor_msgs
+cp -r ~/Downloads/common_msgs/trajectory_msgs ~/ros_hunt_ws/src/trajectory_msgs
