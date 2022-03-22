@@ -1,23 +1,21 @@
 <package>
-  <name>geometry_msgs</name>
+  <name>hunt_rehoboam</name>
   <version>1.13.1</version>
   <description>
-    geometry_msgs provides messages for common geometric primitives
-    such as points, vectors, and poses. These primitives are designed
-    to provide a common data type and facilitate interoperability
-    throughout the system.
+    Main FSM for hunt project. Rehoboam is the name of the hivemind in
+    the show Westworld.
   </description>
-  <maintainer email="michel@ekumenlabs.com">Michel Hidalgo</maintainer>
+  <maintainer email="foo@foo.com">Foo Foo</maintainer>
+  <author email="foo@foo.com">Foo Foo</author>
   <license>BSD</license>
 
-  <url>http://wiki.ros.org/geometry_msgs</url>
-  <author email="tfoote@osrfoundation.org">Tully Foote</author>
+  <url>http://wiki.ros.org/</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <build_depend>message_generation</build_depend>
   <build_depend>std_msgs</build_depend>
-
+  
   <run_depend>message_runtime</run_depend>
   <run_depend>std_msgs</run_depend>
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29
+# make sure to chmod +x scripts/add_two_ints_client.py
 
 from __future__ import print_function
 
