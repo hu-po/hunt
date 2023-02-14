@@ -1,2 +1,0 @@
-set(dynamixel_sdk_examples_MESSAGE_FILES "/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/msg/SetPosition.msg;/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/msg/SyncSetPosition.msg;/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/msg/BulkSetItem.msg")
-set(dynamixel_sdk_examples_SERVICE_FILES "/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/srv/GetPosition.srv;/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/srv/SyncGetPosition.srv;/home/pi/ros_hunt_ws/src/dynamixel_sdk_examples/srv/BulkGetItem.srv")

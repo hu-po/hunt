@@ -1,8 +1,0 @@
-prefix=/home/pi/ros_hunt_ws/devel
-
-Name: sensor_msgs
-Description: Description of sensor_msgs
-Version: 1.13.1
-Cflags: -I/home/pi/ros_hunt_ws/devel/include -I/home/pi/ros_hunt_ws/src/sensor_msgs/include
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs message_runtime std_msgs

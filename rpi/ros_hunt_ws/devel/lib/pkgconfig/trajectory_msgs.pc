@@ -1,8 +1,0 @@
-prefix=/home/pi/ros_hunt_ws/devel
-
-Name: trajectory_msgs
-Description: Description of trajectory_msgs
-Version: 1.13.1
-Cflags: -I/home/pi/ros_hunt_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs geometry_msgs

@@ -1,2 +1,0 @@
-dynamixel_sdk:dynamixel_sdk_examples:dynamixel_workbench:dynamixel_workbench_controllers:dynamixel_workbench_msgs:dynamixel_workbench_operators:dynamixel_workbench_toolbox:geometry_msgs:sensor_msgs:trajectory_msgs
--DCATKIN_DEVEL_PREFIX=/home/pi/ros_hunt_ws/devel -DCMAKE_INSTALL_PREFIX=/home/pi/ros_hunt_ws/install -G Unix Makefiles
